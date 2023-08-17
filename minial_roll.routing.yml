@@ -1,0 +1,7 @@
+entity.minial_roll_game.settings:
+  path: 'admin/structure/minial-roll-game'
+  defaults:
+    _form: '\Drupal\minial_roll\Form\GameSettingsForm'
+    _title: 'Game'
+  requirements:
+    _permission: 'administer minial_roll_game'

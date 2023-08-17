@@ -1,0 +1,5 @@
+minial_roll_game.add_form:
+  title: 'Add game'
+  route_name: entity.minial_roll_game.add_form
+  appears_on:
+    - entity.minial_roll_game.collection

@@ -1,0 +1,10 @@
+entity.minial_roll_game.edit_form:
+  route_name: entity.minial_roll_game.edit_form
+  group: minial_roll_game
+  title: 'Edit'
+
+entity.minial_roll_game.delete_form:
+  route_name: entity.minial_roll_game.delete_form
+  group: minial_roll_game
+  title: 'Delete'
+  weight: 10

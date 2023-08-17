@@ -1,0 +1,11 @@
+administer minial_roll_game:
+  title: 'Administer games'
+  restrict access: true
+view minial_roll_game:
+  title: 'View game'
+edit minial_roll_game:
+  title: 'Edit game'
+delete minial_roll_game:
+  title: 'Delete game'
+create minial_roll_game:
+  title: 'Create game'

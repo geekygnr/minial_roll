@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Minial roll module.
+minial_roll.settings:
+  type: config_object
+  label: 'Minial roll settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

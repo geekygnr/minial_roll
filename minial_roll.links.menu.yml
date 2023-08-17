@@ -1,0 +1,11 @@
+entity.minial_roll_game.settings:
+  title: 'Game'
+  description: 'Configure a Game entity type.'
+  route_name:  entity.minial_roll_game.settings
+  parent: system.admin_structure
+
+entity.minial_roll_game.collection:
+  title: 'Games'
+  description: 'List of games.'
+  route_name: entity.minial_roll_game.collection
+  parent: system.admin_content

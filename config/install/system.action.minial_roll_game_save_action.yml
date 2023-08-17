@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_game_save_action
+label: 'Save games'
+type: minial_roll_game
+plugin: entity:save_action:minial_roll_game
+configuration: {  }
