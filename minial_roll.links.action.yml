@@ -51,3 +51,15 @@ minial_roll_character.add_page:
   route_name: entity.minial_roll_character.add_page
   appears_on:
     - entity.minial_roll_character.collection
+
+minial_roll_weapon.type_add:
+  title: 'Add weapon type'
+  route_name: entity.minial_roll_weapon_type.add_form
+  appears_on:
+    - entity.minial_roll_weapon_type.collection
+
+minial_roll_weapon.add_page:
+  title: 'Add weapon'
+  route_name: entity.minial_roll_weapon.add_page
+  appears_on:
+    - entity.minial_roll_weapon.collection

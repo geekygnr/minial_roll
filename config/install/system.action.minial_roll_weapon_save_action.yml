@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_weapon_save_action
+label: 'Save weapons'
+type: minial_roll_weapon
+plugin: entity:save_action:minial_roll_weapon
+configuration: {  }

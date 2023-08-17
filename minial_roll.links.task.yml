@@ -128,3 +128,30 @@ entity.minial_roll_character_type.collection:
   title: 'List'
   route_name: entity.minial_roll_character_type.collection
   base_route: entity.minial_roll_character_type.collection
+
+entity.minial_roll_weapon.view:
+  title: 'View'
+  route_name: entity.minial_roll_weapon.canonical
+  base_route: entity.minial_roll_weapon.canonical
+entity.minial_roll_weapon.edit_form:
+  title: 'Edit'
+  route_name: entity.minial_roll_weapon.edit_form
+  base_route: entity.minial_roll_weapon.canonical
+entity.minial_roll_weapon.delete_form:
+  title: 'Delete'
+  route_name: entity.minial_roll_weapon.delete_form
+  base_route: entity.minial_roll_weapon.canonical
+  weight: 10
+entity.minial_roll_weapon.collection:
+  title: 'Weapons'
+  route_name: entity.minial_roll_weapon.collection
+  base_route: system.admin_content
+  weight: 10
+entity.minial_roll_weapon_type.edit_form:
+  title: 'Edit'
+  route_name: entity.minial_roll_weapon_type.edit_form
+  base_route: entity.minial_roll_weapon_type.edit_form
+entity.minial_roll_weapon_type.collection:
+  title: 'List'
+  route_name: entity.minial_roll_weapon_type.collection
+  base_route: entity.minial_roll_weapon_type.collection

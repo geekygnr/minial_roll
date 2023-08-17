@@ -57,3 +57,15 @@ entity.minial_roll_character.collection:
   description: 'List of characters.'
   route_name: entity.minial_roll_character.collection
   parent: system.admin_content
+
+entity.minial_roll_weapon_type.collection:
+  title: 'Weapon types'
+  description: 'Manage and CRUD actions on Weapon type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_weapon_type.collection
+
+entity.minial_roll_weapon.collection:
+  title: 'Weapons'
+  description: 'List of weapons.'
+  route_name: entity.minial_roll_weapon.collection
+  parent: system.admin_content
