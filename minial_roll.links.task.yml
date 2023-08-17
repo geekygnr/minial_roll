@@ -263,3 +263,30 @@ entity.minial_roll_battle_list_type.collection:
   title: 'List'
   route_name: entity.minial_roll_battle_list_type.collection
   base_route: entity.minial_roll_battle_list_type.collection
+
+entity.minial_roll_inventory.view:
+  title: 'View'
+  route_name: entity.minial_roll_inventory.canonical
+  base_route: entity.minial_roll_inventory.canonical
+entity.minial_roll_inventory.edit_form:
+  title: 'Edit'
+  route_name: entity.minial_roll_inventory.edit_form
+  base_route: entity.minial_roll_inventory.canonical
+entity.minial_roll_inventory.delete_form:
+  title: 'Delete'
+  route_name: entity.minial_roll_inventory.delete_form
+  base_route: entity.minial_roll_inventory.canonical
+  weight: 10
+entity.minial_roll_inventory.collection:
+  title: 'Inventories'
+  route_name: entity.minial_roll_inventory.collection
+  base_route: system.admin_content
+  weight: 10
+entity.minial_roll_inventory_type.edit_form:
+  title: 'Edit'
+  route_name: entity.minial_roll_inventory_type.edit_form
+  base_route: entity.minial_roll_inventory_type.edit_form
+entity.minial_roll_inventory_type.collection:
+  title: 'List'
+  route_name: entity.minial_roll_inventory_type.collection
+  base_route: entity.minial_roll_inventory_type.collection

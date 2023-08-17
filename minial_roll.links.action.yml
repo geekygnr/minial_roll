@@ -111,3 +111,15 @@ minial_roll_battle_list.add_page:
   route_name: entity.minial_roll_battle_list.add_page
   appears_on:
     - entity.minial_roll_battle_list.collection
+
+minial_roll_inventory.type_add:
+  title: 'Add inventory type'
+  route_name: entity.minial_roll_inventory_type.add_form
+  appears_on:
+    - entity.minial_roll_inventory_type.collection
+
+minial_roll_inventory.add_page:
+  title: 'Add inventory'
+  route_name: entity.minial_roll_inventory.add_page
+  appears_on:
+    - entity.minial_roll_inventory.collection
