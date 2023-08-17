@@ -33,3 +33,27 @@ entity.minial_roll_faction.collection:
   description: 'List of factions.'
   route_name: entity.minial_roll_faction.collection
   parent: system.admin_content
+
+entity.minial_roll_armour_type.collection:
+  title: 'Armour types'
+  description: 'Manage and CRUD actions on Armour type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_armour_type.collection
+
+entity.minial_roll_armour.collection:
+  title: 'Armours'
+  description: 'List of armours.'
+  route_name: entity.minial_roll_armour.collection
+  parent: system.admin_content
+
+entity.minial_roll_character_type.collection:
+  title: 'Character types'
+  description: 'Manage and CRUD actions on Character type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_character_type.collection
+
+entity.minial_roll_character.collection:
+  title: 'Characters'
+  description: 'List of characters.'
+  route_name: entity.minial_roll_character.collection
+  parent: system.admin_content

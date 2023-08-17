@@ -16,6 +16,8 @@ function minial_roll_theme(): array {
     'minial_roll_game' => ['render element' => 'elements'],
     'minial_roll_game_element' => ['render element' => 'elements'],
     'minial_roll_faction' => ['render element' => 'elements'],
+    'minial_roll_armour' => ['render element' => 'elements'],
+    'minial_roll_character' => ['render element' => 'elements'],
   ];
 }
 
@@ -30,6 +32,8 @@ function _list_defined_types(): array {
     'minial_roll_game',
     'minial_roll_element',
     'minial_roll_faction',
+    'minial_roll_armour',
+    'minial_roll_character',
   ];
 }
 
@@ -162,6 +166,42 @@ function template_preprocess_minial_roll_game_element(array &$variables): void {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_minial_roll_faction(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for armour templates.
+ *
+ * Default template: minial-roll-armour.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the armour information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_minial_roll_armour(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for character templates.
+ *
+ * Default template: minial-roll-character.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the character information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_minial_roll_character(array &$variables): void {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];

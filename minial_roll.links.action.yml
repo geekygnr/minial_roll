@@ -27,3 +27,27 @@ minial_roll_faction.add_page:
   route_name: entity.minial_roll_faction.add_page
   appears_on:
     - entity.minial_roll_faction.collection
+
+minial_roll_armour.type_add:
+  title: 'Add armour type'
+  route_name: entity.minial_roll_armour_type.add_form
+  appears_on:
+    - entity.minial_roll_armour_type.collection
+
+minial_roll_armour.add_page:
+  title: 'Add armour'
+  route_name: entity.minial_roll_armour.add_page
+  appears_on:
+    - entity.minial_roll_armour.collection
+
+minial_roll_character.type_add:
+  title: 'Add character type'
+  route_name: entity.minial_roll_character_type.add_form
+  appears_on:
+    - entity.minial_roll_character_type.collection
+
+minial_roll_character.add_page:
+  title: 'Add character'
+  route_name: entity.minial_roll_character.add_page
+  appears_on:
+    - entity.minial_roll_character.collection

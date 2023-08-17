@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_character_save_action
+label: 'Save characters'
+type: minial_roll_character
+plugin: entity:save_action:minial_roll_character
+configuration: {  }

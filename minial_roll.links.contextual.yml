@@ -30,3 +30,25 @@ entity.minial_roll_faction.delete_form:
   group: minial_roll_faction
   title: 'Delete'
   weight: 10
+
+entity.minial_roll_armour.edit_form:
+  route_name: entity.minial_roll_armour.edit_form
+  group: minial_roll_armour
+  title: 'Edit'
+
+entity.minial_roll_armour.delete_form:
+  route_name: entity.minial_roll_armour.delete_form
+  group: minial_roll_armour
+  title: 'Delete'
+  weight: 10
+
+entity.minial_roll_character.edit_form:
+  route_name: entity.minial_roll_character.edit_form
+  group: minial_roll_character
+  title: 'Edit'
+
+entity.minial_roll_character.delete_form:
+  route_name: entity.minial_roll_character.delete_form
+  group: minial_roll_character
+  title: 'Delete'
+  weight: 10

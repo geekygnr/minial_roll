@@ -35,3 +35,29 @@ delete minial_roll_faction:
   title: 'Delete faction'
 create minial_roll_faction:
   title: 'Create faction'
+
+administer minial_roll_armour types:
+  title: 'Administer armour types'
+  description: 'Maintain the types of armour entity.'
+  restrict access: true
+view minial_roll_armour:
+  title: 'View armour'
+edit minial_roll_armour:
+  title: 'Edit armour'
+delete minial_roll_armour:
+  title: 'Delete armour'
+create minial_roll_armour:
+  title: 'Create armour'
+
+administer minial_roll_character types:
+  title: 'Administer character types'
+  description: 'Maintain the types of character entity.'
+  restrict access: true
+view minial_roll_character:
+  title: 'View character'
+edit minial_roll_character:
+  title: 'Edit character'
+delete minial_roll_character:
+  title: 'Delete character'
+create minial_roll_character:
+  title: 'Create character'
