@@ -1,0 +1,12 @@
+minial_roll.minial_roll_game_element_type.*:
+  type: config_entity
+  label: 'GameElement type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

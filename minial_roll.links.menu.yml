@@ -9,3 +9,15 @@ entity.minial_roll_game.collection:
   description: 'List of games.'
   route_name: entity.minial_roll_game.collection
   parent: system.admin_content
+
+entity.minial_roll_game_element_type.collection:
+  title: 'GameElement types'
+  description: 'Manage and CRUD actions on GameElement type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_game_element_type.collection
+
+entity.minial_roll_game_element.collection:
+  title: 'GameElements'
+  description: 'List of gameelements.'
+  route_name: entity.minial_roll_game_element.collection
+  parent: system.admin_content

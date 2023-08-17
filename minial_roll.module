@@ -14,6 +14,7 @@ use Drupal\user\UserInterface;
 function minial_roll_theme(): array {
   return [
     'minial_roll_game' => ['render element' => 'elements'],
+    'minial_roll_game_element' => ['render element' => 'elements'],
   ];
 }
 
@@ -51,6 +52,16 @@ function minial_roll_user_cancel($edit, UserInterface $account, $method): void {
       foreach ($storage->loadMultiple($minial_roll_game_ids) as $minial_roll_game) {
         $minial_roll_game->set('status', FALSE)->save();
       }
+      // Unpublish gameelements.
+      $storage = \Drupal::entityTypeManager()->getStorage('minial_roll_game_element');
+      $minial_roll_game_element_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($minial_roll_game_element_ids) as $minial_roll_game_element) {
+        $minial_roll_game_element->set('status', FALSE)->save();
+      }
       break;
 
     case 'user_cancel_reassign':
@@ -62,6 +73,15 @@ function minial_roll_user_cancel($edit, UserInterface $account, $method): void {
         ->execute();
       foreach ($storage->loadMultiple($minial_roll_game_ids) as $minial_roll_game) {
         $minial_roll_game->setOwnerId(0)->save();
+      }
+      // Anonymize gameelements.
+      $storage = \Drupal::entityTypeManager()->getStorage('minial_roll_game_element');
+      $minial_roll_game_element_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($minial_roll_game_element_ids) as $minial_roll_game_element) {
+        $minial_roll_game_element->setOwnerId(0)->save();
       }
       break;
   }
@@ -88,5 +108,41 @@ function minial_roll_user_predelete(UserInterface $account): void {
     ->execute();
   foreach (array_keys($minial_roll_game_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);
+  }
+  // Delete gameelements that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('minial_roll_game_element');
+  $minial_roll_game_element_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete(
+    $storage->loadMultiple($minial_roll_game_element_ids)
+  );
+  // Delete old revisions.
+  $minial_roll_game_element_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  foreach (array_keys($minial_roll_game_element_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}
+
+/**
+ * Prepares variables for gameelement templates.
+ *
+ * Default template: minial-roll-game-element.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the gameelement information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_minial_roll_game_element(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
   }
 }

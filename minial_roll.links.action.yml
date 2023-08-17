@@ -3,3 +3,15 @@ minial_roll_game.add_form:
   route_name: entity.minial_roll_game.add_form
   appears_on:
     - entity.minial_roll_game.collection
+
+minial_roll_game_element.type_add:
+  title: 'Add gameelement type'
+  route_name: entity.minial_roll_game_element_type.add_form
+  appears_on:
+    - entity.minial_roll_game_element_type.collection
+
+minial_roll_game_element.add_page:
+  title: 'Add gameelement'
+  route_name: entity.minial_roll_game_element.add_page
+  appears_on:
+    - entity.minial_roll_game_element.collection
