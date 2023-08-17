@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_squad_delete_action
+label: 'Delete squads'
+type: minial_roll_squad
+plugin: entity:delete_action:minial_roll_squad
+configuration: {  }

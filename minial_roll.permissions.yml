@@ -100,3 +100,16 @@ delete minial_roll_model:
   title: 'Delete model'
 create minial_roll_model:
   title: 'Create model'
+
+administer minial_roll_squad types:
+  title: 'Administer squad types'
+  description: 'Maintain the types of squad entity.'
+  restrict access: true
+view minial_roll_squad:
+  title: 'View squad'
+edit minial_roll_squad:
+  title: 'Edit squad'
+delete minial_roll_squad:
+  title: 'Delete squad'
+create minial_roll_squad:
+  title: 'Create squad'

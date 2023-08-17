@@ -87,3 +87,15 @@ minial_roll_model.add_page:
   route_name: entity.minial_roll_model.add_page
   appears_on:
     - entity.minial_roll_model.collection
+
+minial_roll_squad.type_add:
+  title: 'Add squad type'
+  route_name: entity.minial_roll_squad_type.add_form
+  appears_on:
+    - entity.minial_roll_squad_type.collection
+
+minial_roll_squad.add_page:
+  title: 'Add squad'
+  route_name: entity.minial_roll_squad.add_page
+  appears_on:
+    - entity.minial_roll_squad.collection
