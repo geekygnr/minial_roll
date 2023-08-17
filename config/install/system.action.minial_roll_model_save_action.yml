@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_model_save_action
+label: 'Save models'
+type: minial_roll_model
+plugin: entity:save_action:minial_roll_model
+configuration: {  }

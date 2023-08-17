@@ -87,3 +87,16 @@ delete minial_roll_ability:
   title: 'Delete ability'
 create minial_roll_ability:
   title: 'Create ability'
+
+administer minial_roll_model types:
+  title: 'Administer model types'
+  description: 'Maintain the types of model entity.'
+  restrict access: true
+view minial_roll_model:
+  title: 'View model'
+edit minial_roll_model:
+  title: 'Edit model'
+delete minial_roll_model:
+  title: 'Delete model'
+create minial_roll_model:
+  title: 'Create model'

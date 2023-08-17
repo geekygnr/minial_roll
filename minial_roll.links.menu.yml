@@ -81,3 +81,15 @@ entity.minial_roll_ability.collection:
   description: 'List of abilities.'
   route_name: entity.minial_roll_ability.collection
   parent: system.admin_content
+
+entity.minial_roll_model_type.collection:
+  title: 'Model types'
+  description: 'Manage and CRUD actions on Model type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_model_type.collection
+
+entity.minial_roll_model.collection:
+  title: 'Models'
+  description: 'List of models.'
+  route_name: entity.minial_roll_model.collection
+  parent: system.admin_content

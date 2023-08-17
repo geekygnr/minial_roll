@@ -75,3 +75,15 @@ minial_roll_ability.add_page:
   route_name: entity.minial_roll_ability.add_page
   appears_on:
     - entity.minial_roll_ability.collection
+
+minial_roll_model.type_add:
+  title: 'Add model type'
+  route_name: entity.minial_roll_model_type.add_form
+  appears_on:
+    - entity.minial_roll_model_type.collection
+
+minial_roll_model.add_page:
+  title: 'Add model'
+  route_name: entity.minial_roll_model.add_page
+  appears_on:
+    - entity.minial_roll_model.collection
