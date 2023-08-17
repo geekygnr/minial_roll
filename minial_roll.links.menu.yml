@@ -21,3 +21,15 @@ entity.minial_roll_game_element.collection:
   description: 'List of gameelements.'
   route_name: entity.minial_roll_game_element.collection
   parent: system.admin_content
+
+entity.minial_roll_faction_type.collection:
+  title: 'Faction types'
+  description: 'Manage and CRUD actions on Faction type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_faction_type.collection
+
+entity.minial_roll_faction.collection:
+  title: 'Factions'
+  description: 'List of factions.'
+  route_name: entity.minial_roll_faction.collection
+  parent: system.admin_content

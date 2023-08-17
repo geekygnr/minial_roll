@@ -19,3 +19,14 @@ entity.minial_roll_game_element.delete_form:
   group: minial_roll_game_element
   title: 'Delete'
   weight: 10
+
+entity.minial_roll_faction.edit_form:
+  route_name: entity.minial_roll_faction.edit_form
+  group: minial_roll_faction
+  title: 'Edit'
+
+entity.minial_roll_faction.delete_form:
+  route_name: entity.minial_roll_faction.delete_form
+  group: minial_roll_faction
+  title: 'Delete'
+  weight: 10

@@ -22,3 +22,16 @@ delete minial_roll_game_element:
   title: 'Delete gameelement'
 create minial_roll_game_element:
   title: 'Create gameelement'
+
+administer minial_roll_faction types:
+  title: 'Administer faction types'
+  description: 'Maintain the types of faction entity.'
+  restrict access: true
+view minial_roll_faction:
+  title: 'View faction'
+edit minial_roll_faction:
+  title: 'Edit faction'
+delete minial_roll_faction:
+  title: 'Delete faction'
+create minial_roll_faction:
+  title: 'Create faction'

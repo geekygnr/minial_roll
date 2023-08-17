@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_faction_save_action
+label: 'Save factions'
+type: minial_roll_faction
+plugin: entity:save_action:minial_roll_faction
+configuration: {  }

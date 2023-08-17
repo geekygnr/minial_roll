@@ -15,3 +15,15 @@ minial_roll_game_element.add_page:
   route_name: entity.minial_roll_game_element.add_page
   appears_on:
     - entity.minial_roll_game_element.collection
+
+minial_roll_faction.type_add:
+  title: 'Add faction type'
+  route_name: entity.minial_roll_faction_type.add_form
+  appears_on:
+    - entity.minial_roll_faction_type.collection
+
+minial_roll_faction.add_page:
+  title: 'Add faction'
+  route_name: entity.minial_roll_faction.add_page
+  appears_on:
+    - entity.minial_roll_faction.collection
