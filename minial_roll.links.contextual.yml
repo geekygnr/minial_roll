@@ -96,3 +96,14 @@ entity.minial_roll_squad.delete_form:
   group: minial_roll_squad
   title: 'Delete'
   weight: 10
+
+entity.minial_roll_battle_list.edit_form:
+  route_name: entity.minial_roll_battle_list.edit_form
+  group: minial_roll_battle_list
+  title: 'Edit'
+
+entity.minial_roll_battle_list.delete_form:
+  route_name: entity.minial_roll_battle_list.delete_form
+  group: minial_roll_battle_list
+  title: 'Delete'
+  weight: 10

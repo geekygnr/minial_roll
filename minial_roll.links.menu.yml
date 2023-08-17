@@ -105,3 +105,15 @@ entity.minial_roll_squad.collection:
   description: 'List of squads.'
   route_name: entity.minial_roll_squad.collection
   parent: system.admin_content
+
+entity.minial_roll_battle_list_type.collection:
+  title: 'Battle List types'
+  description: 'Manage and CRUD actions on Battle List type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_battle_list_type.collection
+
+entity.minial_roll_battle_list.collection:
+  title: 'Battle Lists'
+  description: 'List of battle lists.'
+  route_name: entity.minial_roll_battle_list.collection
+  parent: system.admin_content

@@ -99,3 +99,15 @@ minial_roll_squad.add_page:
   route_name: entity.minial_roll_squad.add_page
   appears_on:
     - entity.minial_roll_squad.collection
+
+minial_roll_battle_list.type_add:
+  title: 'Add battle list type'
+  route_name: entity.minial_roll_battle_list_type.add_form
+  appears_on:
+    - entity.minial_roll_battle_list_type.collection
+
+minial_roll_battle_list.add_page:
+  title: 'Add battle list'
+  route_name: entity.minial_roll_battle_list.add_page
+  appears_on:
+    - entity.minial_roll_battle_list.collection

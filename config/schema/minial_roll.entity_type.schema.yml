@@ -101,3 +101,16 @@ minial_roll.minial_roll_squad_type.*:
       label: 'Label'
     uuid:
       type: string
+
+minial_roll.minial_roll_battle_list_type.*:
+  type: config_entity
+  label: 'Battle List type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
