@@ -69,3 +69,15 @@ entity.minial_roll_weapon.collection:
   description: 'List of weapons.'
   route_name: entity.minial_roll_weapon.collection
   parent: system.admin_content
+
+entity.minial_roll_ability_type.collection:
+  title: 'Ability types'
+  description: 'Manage and CRUD actions on Ability type.'
+  parent: system.admin_structure
+  route_name: entity.minial_roll_ability_type.collection
+
+entity.minial_roll_ability.collection:
+  title: 'Abilities'
+  description: 'List of abilities.'
+  route_name: entity.minial_roll_ability.collection
+  parent: system.admin_content

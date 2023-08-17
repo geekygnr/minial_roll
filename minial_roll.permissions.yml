@@ -74,3 +74,16 @@ delete minial_roll_weapon:
   title: 'Delete weapon'
 create minial_roll_weapon:
   title: 'Create weapon'
+
+administer minial_roll_ability types:
+  title: 'Administer ability types'
+  description: 'Maintain the types of ability entity.'
+  restrict access: true
+view minial_roll_ability:
+  title: 'View ability'
+edit minial_roll_ability:
+  title: 'Edit ability'
+delete minial_roll_ability:
+  title: 'Delete ability'
+create minial_roll_ability:
+  title: 'Create ability'

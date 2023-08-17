@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_ability_save_action
+label: 'Save abilities'
+type: minial_roll_ability
+plugin: entity:save_action:minial_roll_ability
+configuration: {  }

@@ -19,6 +19,7 @@ function minial_roll_theme(): array {
     'minial_roll_armour' => ['render element' => 'elements'],
     'minial_roll_character' => ['render element' => 'elements'],
     'minial_roll_weapon' => ['render element' => 'elements'],
+    'minial_roll_ability' => ['render element' => 'elements'],
   ];
 }
 
@@ -36,6 +37,7 @@ function _list_defined_types(): array {
     'minial_roll_armour',
     'minial_roll_character',
     'minial_roll_weapon',
+    'minial_roll_ability',
   ];
 }
 
@@ -222,6 +224,24 @@ function template_preprocess_minial_roll_character(array &$variables): void {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_minial_roll_weapon(array &$variables): void {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for ability templates.
+ *
+ * Default template: minial-roll-ability.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the ability information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_minial_roll_ability(array &$variables): void {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];

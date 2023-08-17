@@ -62,3 +62,16 @@ minial_roll.minial_roll_weapon_type.*:
       label: 'Label'
     uuid:
       type: string
+
+minial_roll.minial_roll_ability_type.*:
+  type: config_entity
+  label: 'Ability type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

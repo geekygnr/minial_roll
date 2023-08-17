@@ -63,3 +63,15 @@ minial_roll_weapon.add_page:
   route_name: entity.minial_roll_weapon.add_page
   appears_on:
     - entity.minial_roll_weapon.collection
+
+minial_roll_ability.type_add:
+  title: 'Add ability type'
+  route_name: entity.minial_roll_ability_type.add_form
+  appears_on:
+    - entity.minial_roll_ability_type.collection
+
+minial_roll_ability.add_page:
+  title: 'Add ability'
+  route_name: entity.minial_roll_ability.add_page
+  appears_on:
+    - entity.minial_roll_ability.collection
