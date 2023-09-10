@@ -14,7 +14,6 @@ use Drupal\user\UserInterface;
 function minial_roll_theme(): array {
   return [
     'minial_roll_game' => ['render element' => 'elements'],
-    'minial_roll_game_element' => ['render element' => 'elements'],
     'minial_roll_faction' => ['render element' => 'elements'],
     'minial_roll_armour' => ['render element' => 'elements'],
     'minial_roll_character' => ['render element' => 'elements'],
@@ -36,7 +35,6 @@ function minial_roll_theme(): array {
 function _list_defined_types(): array {
   return [
     'minial_roll_game',
-    'minial_roll_element',
     'minial_roll_faction',
     'minial_roll_armour',
     'minial_roll_character',
@@ -145,24 +143,6 @@ function minial_roll_user_predelete(UserInterface $account): void {
     ->execute();
   foreach (array_keys($minial_roll_game_element_ids) as $revision_id) {
     $storage->deleteRevision($revision_id);
-  }
-}
-
-/**
- * Prepares variables for gameelement templates.
- *
- * Default template: minial-roll-game-element.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - elements: An associative array containing the gameelement information and any
- *     fields attached to the entity.
- *   - attributes: HTML attributes for the containing element.
- */
-function template_preprocess_minial_roll_game_element(array &$variables): void {
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
-  foreach (Element::children($variables['elements']) as $key) {
-    $variables['content'][$key] = $variables['elements'][$key];
   }
 }
 

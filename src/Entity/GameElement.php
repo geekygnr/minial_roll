@@ -72,7 +72,7 @@ use Drupal\user\EntityOwnerTrait;
  *   field_ui_base_route = "entity.minial_roll_game_element_type.edit_form",
  * )
  */
-final class GameElement extends RevisionableContentEntityBase implements GameElementInterface {
+class GameElement extends RevisionableContentEntityBase implements GameElementInterface {
 
   use EntityChangedTrait;
   use EntityOwnerTrait;

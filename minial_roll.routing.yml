@@ -5,3 +5,17 @@ entity.minial_roll_game.settings:
     _title: 'Game'
   requirements:
     _permission: 'administer minial_roll_game'
+minial_roll.structure:
+  path: '/admin/structure/minial_roll'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Minial Roll'
+  requirements:
+    _permission: 'access administration pages'
+minial_roll.content:
+  path: '/admin/minial_roll'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Minial Roll'
+  requirements:
+    _permission: 'access administration pages'

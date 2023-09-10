@@ -6,40 +6,18 @@ use Drupal\Core\Entity\BundleEntityFormBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\minial_roll\Entity\AbilityType;
+use Drupal\minial_roll\Entity\GameElementType;
 
 /**
  * Form handler for ability type forms.
  */
-final class AbilityTypeForm extends BundleEntityFormBase {
+final class AbilityTypeForm extends GameElementTypeForm {
 
   /**
    * {@inheritdoc}
    */
   public function form(array $form, FormStateInterface $form_state): array {
     $form = parent::form($form, $form_state);
-
-    if ($this->operation === 'edit') {
-      $form['#title'] = $this->t('Edit %label ability type', ['%label' => $this->entity->label()]);
-    }
-
-    $form['label'] = [
-      '#title' => $this->t('Label'),
-      '#type' => 'textfield',
-      '#default_value' => $this->entity->label(),
-      '#description' => $this->t('The human-readable name of this ability type.'),
-      '#required' => TRUE,
-    ];
-
-    $form['id'] = [
-      '#type' => 'machine_name',
-      '#default_value' => $this->entity->id(),
-      '#maxlength' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
-      '#machine_name' => [
-        'exists' => [AbilityType::class, 'load'],
-        'source' => ['label'],
-      ],
-      '#description' => $this->t('A unique machine-readable name for this ability type. It must only contain lowercase letters, numbers, and underscores.'),
-    ];
 
     return $this->protectBundleIdElement($form);
   }

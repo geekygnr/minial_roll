@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+*      "game",
  *   },
  * )
  */
-final class ArmourType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this armour type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the armour type.
-   */
-  protected string $label;
+final class ArmourType extends GameElementType {
 
 }

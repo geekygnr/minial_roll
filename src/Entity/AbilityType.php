@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class AbilityType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this ability type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the ability type.
-   */
-  protected string $label;
+final class AbilityType extends GameElementType {
 
 }

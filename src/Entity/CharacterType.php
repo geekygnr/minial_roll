@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class CharacterType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this character type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the character type.
-   */
-  protected string $label;
+final class CharacterType extends GameElementType {
 
 }

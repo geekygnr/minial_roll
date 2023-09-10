@@ -1,131 +1,131 @@
+minial_roll.structure:
+  title: 'Minial Roll'
+  description: 'Minial Roll Structure Management'
+  route_name: minial_roll.structure
+  parent: system.admin_structure
+
+minial_roll.content:
+  title: 'Minial Roll'
+  description: 'Minial Roll Content Management'
+  route_name: minial_roll.content
+  parent: system.admin
+
 entity.minial_roll_game.settings:
   title: 'Game'
   description: 'Configure a Game entity type.'
   route_name:  entity.minial_roll_game.settings
-  parent: system.admin_structure
+  parent: minial_roll.structure
 
 entity.minial_roll_game.collection:
   title: 'Games'
   description: 'List of games.'
   route_name: entity.minial_roll_game.collection
-  parent: system.admin_content
-
-entity.minial_roll_game_element_type.collection:
-  title: 'GameElement types'
-  description: 'Manage and CRUD actions on GameElement type.'
-  parent: system.admin_structure
-  route_name: entity.minial_roll_game_element_type.collection
-
-entity.minial_roll_game_element.collection:
-  title: 'GameElements'
-  description: 'List of gameelements.'
-  route_name: entity.minial_roll_game_element.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_faction_type.collection:
   title: 'Faction types'
   description: 'Manage and CRUD actions on Faction type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_faction_type.collection
 
 entity.minial_roll_faction.collection:
   title: 'Factions'
   description: 'List of factions.'
   route_name: entity.minial_roll_faction.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_armour_type.collection:
   title: 'Armour types'
   description: 'Manage and CRUD actions on Armour type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_armour_type.collection
 
 entity.minial_roll_armour.collection:
   title: 'Armours'
   description: 'List of armours.'
   route_name: entity.minial_roll_armour.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_character_type.collection:
   title: 'Character types'
   description: 'Manage and CRUD actions on Character type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_character_type.collection
 
 entity.minial_roll_character.collection:
   title: 'Characters'
   description: 'List of characters.'
   route_name: entity.minial_roll_character.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_weapon_type.collection:
   title: 'Weapon types'
   description: 'Manage and CRUD actions on Weapon type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_weapon_type.collection
 
 entity.minial_roll_weapon.collection:
   title: 'Weapons'
   description: 'List of weapons.'
   route_name: entity.minial_roll_weapon.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_ability_type.collection:
   title: 'Ability types'
   description: 'Manage and CRUD actions on Ability type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_ability_type.collection
 
 entity.minial_roll_ability.collection:
   title: 'Abilities'
   description: 'List of abilities.'
   route_name: entity.minial_roll_ability.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_model_type.collection:
   title: 'Model types'
   description: 'Manage and CRUD actions on Model type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_model_type.collection
 
 entity.minial_roll_model.collection:
   title: 'Models'
   description: 'List of models.'
   route_name: entity.minial_roll_model.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_squad_type.collection:
   title: 'Squad types'
   description: 'Manage and CRUD actions on Squad type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_squad_type.collection
 
 entity.minial_roll_squad.collection:
   title: 'Squads'
   description: 'List of squads.'
   route_name: entity.minial_roll_squad.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_battle_list_type.collection:
   title: 'Battle List types'
   description: 'Manage and CRUD actions on Battle List type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_battle_list_type.collection
 
 entity.minial_roll_battle_list.collection:
   title: 'Battle Lists'
   description: 'List of battle lists.'
   route_name: entity.minial_roll_battle_list.collection
-  parent: system.admin_content
+  parent: minial_roll.content
 
 entity.minial_roll_inventory_type.collection:
   title: 'Inventory types'
   description: 'Manage and CRUD actions on Inventory type.'
-  parent: system.admin_structure
+  parent: minial_roll.structure
   route_name: entity.minial_roll_inventory_type.collection
 
 entity.minial_roll_inventory.collection:
   title: 'Inventories'
   description: 'List of inventories.'
   route_name: entity.minial_roll_inventory.collection
-  parent: system.admin_content
+  parent: minial_roll.content

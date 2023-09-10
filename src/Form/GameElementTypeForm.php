@@ -10,7 +10,7 @@ use Drupal\minial_roll\Entity\GameElementType;
 /**
  * Form handler for gameelement type forms.
  */
-final class GameElementTypeForm extends BundleEntityFormBase {
+class GameElementTypeForm extends BundleEntityFormBase {
 
   /**
    * {@inheritdoc}
@@ -20,6 +20,9 @@ final class GameElementTypeForm extends BundleEntityFormBase {
 
     if ($this->operation === 'edit') {
       $form['#title'] = $this->t('Edit %label gameelement type', ['%label' => $this->entity->label()]);
+
+      /** @var \Drupal\minial_roll\Entity\Game $game */
+      $game = $this->entity->game();
     }
 
     $form['label'] = [
@@ -41,35 +44,15 @@ final class GameElementTypeForm extends BundleEntityFormBase {
       '#description' => $this->t('A unique machine-readable name for this gameelement type. It must only contain lowercase letters, numbers, and underscores.'),
     ];
 
+    $form['game'] = [
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'game',
+      '#title' => 'Game',
+      '#default_value' => $game ?? NULL,
+      '#disabled' => TRUE,
+    ];
+
     return $this->protectBundleIdElement($form);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function actions(array $form, FormStateInterface $form_state): array {
-    $actions = parent::actions($form, $form_state);
-    $actions['submit']['#value'] = $this->t('Save gameelement type');
-    $actions['delete']['#value'] = $this->t('Delete gameelement type');
-    return $actions;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function save(array $form, FormStateInterface $form_state): int {
-    $result = parent::save($form, $form_state);
-
-    $message_args = ['%label' => $this->entity->label()];
-    $this->messenger()->addStatus(
-      match($result) {
-        SAVED_NEW => $this->t('The gameelement type %label has been added.', $message_args),
-        SAVED_UPDATED => $this->t('The gameelement type %label has been updated.', $message_args),
-      }
-    );
-    $form_state->setRedirectUrl($this->entity->toUrl('collection'));
-
-    return $result;
   }
 
 }

@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class WeaponType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this weapon type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the weapon type.
-   */
-  protected string $label;
+final class WeaponType extends GameElementType {
 
 }

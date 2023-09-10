@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class FactionType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this faction type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the faction type.
-   */
-  protected string $label;
+final class FactionType extends GameElementType {
 
 }

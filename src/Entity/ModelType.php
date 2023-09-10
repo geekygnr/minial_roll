@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class ModelType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this model type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the model type.
-   */
-  protected string $label;
+final class ModelType extends GameElementType {
 
 }

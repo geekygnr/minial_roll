@@ -195,4 +195,26 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+    parent::postSave($storage, $update);
+    if ($update) {
+      return;
+    }
+    foreach (GameElementType::ELEMENTS as $elementClass) {
+      $machineName = mb_strtolower(str_replace(' ', '_', $this->label()));
+      $element = call_user_func([
+        $elementClass,
+        'create',
+      ], [
+        'id' => $machineName,
+        'label' => $this->label(),
+        'game' => $this->id(),
+      ]);
+      $element->save();
+    }
+  }
+
 }

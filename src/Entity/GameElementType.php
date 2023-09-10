@@ -9,13 +9,13 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *
  * @ConfigEntityType(
  *   id = "minial_roll_game_element_type",
- *   label = @Translation("GameElement type"),
- *   label_collection = @Translation("GameElement types"),
- *   label_singular = @Translation("gameelement type"),
- *   label_plural = @Translation("gameelements types"),
+ *   label = @Translation("Game Element type"),
+ *   label_collection = @Translation("Game Element types"),
+ *   label_singular = @Translation("Game Element type"),
+ *   label_plural = @Translation("Game Elements types"),
  *   label_count = @PluralTranslation(
- *     singular = "@count gameelements type",
- *     plural = "@count gameelements types",
+ *     singular = "@count Game Elements type",
+ *     plural = "@count Game Elements types",
  *   ),
  *   handlers = {
  *     "form" = {
@@ -46,19 +46,44 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class GameElementType extends ConfigEntityBundleBase {
+class GameElementType extends ConfigEntityBundleBase {
 
   /**
-   * The machine name of this gameelement type.
+   * All game element classes.
+   */
+  const ELEMENTS = [
+    AbilityType::class,
+    ArmourType::class,
+    CharacterType::class,
+    FactionType::class,
+    ModelType::class,
+    WeaponType::class,
+  ];
+
+  /**
+   * The machine name of this game element type.
    */
   protected string $id;
 
   /**
-   * The human-readable name of the gameelement type.
+   * The human-readable name of the game element type.
    */
   protected string $label;
+
+  /**
+   * The game entity this element belongs to.
+   */
+  protected int $game;
+
+  /**
+   * @return \Drupal\minial_roll\Entity\Game
+   */
+  public function game(): Game {
+    return Game::load($this->game);
+  }
 
 }
