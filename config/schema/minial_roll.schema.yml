@@ -6,3 +6,11 @@ minial_roll.settings:
     example:
       type: string
       label: 'Example'
+
+entity_reference_selection.minial_roll_faction_selection:
+  type: entity_reference_selection.default
+  label: 'Minial Roll Game Element Selection handler settings'
+
+entity_reference_selection.minial_roll_game_element_selection:
+  type: entity_reference_selection.default
+  label: 'Minial Roll Game Element Selection handler settings'

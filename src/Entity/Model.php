@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\minial_roll\ModelInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -83,6 +84,70 @@ final class Model extends GameElement implements ModelInterface {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
 
     $fields = parent::baseFieldDefinitions($entity_type);
+
+    $fields['quantity'] = BaseFieldDefinition::create('integer')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Quantity'))
+      ->setDefaultValue(1)
+      ->setSetting('unsigned', TRUE)
+      ->setSetting('min', 1)
+      ->setDisplayOptions('form', [
+        'type' => 'number',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'number_integer',
+        'label' => 'above',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['character'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Character'))
+      ->setSetting('target_type', 'minial_roll_character')
+      ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['armour'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Abilities'))
+      ->setSetting('target_type', 'minial_roll_armour')
+      ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['abilities'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Abilities'))
+      ->setSetting('target_type', 'minial_roll_ability')
+      ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['weapons'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(TRUE)
+      ->setLabel(t('Weapons'))
+      ->setSetting('target_type', 'minial_roll_weapon')
+      ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
 
     return $fields;
   }

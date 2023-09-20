@@ -113,6 +113,18 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
       ])
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['faction'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(FALSE)
+      ->setLabel(t('Faction'))
+      ->setSetting('target_type', 'minial_roll_faction')
+      ->setSetting('handler', 'minial_roll_faction_selection')
+      ->setRequired(TRUE)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setRevisionable(TRUE)
       ->setLabel(t('Status'))
