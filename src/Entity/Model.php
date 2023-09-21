@@ -108,6 +108,7 @@ final class Model extends GameElement implements ModelInterface {
       ->setLabel(t('Character'))
       ->setSetting('target_type', 'minial_roll_character')
       ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('form', [
         'type' => 'options_select',
@@ -119,6 +120,7 @@ final class Model extends GameElement implements ModelInterface {
       ->setLabel(t('Abilities'))
       ->setSetting('target_type', 'minial_roll_armour')
       ->setSetting('handler', 'minial_roll_game_element_selection')
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('form', [
         'type' => 'options_select',
