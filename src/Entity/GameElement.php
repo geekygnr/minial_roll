@@ -7,6 +7,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\minial_roll\AttachedFactionItemList;
 use Drupal\minial_roll\GameElementInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -190,7 +192,7 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Authored on'))
       ->setTranslatable(TRUE)
-      ->setDescription(t('The time that the gameelement was created.'))
+      ->setDescription(t('The time that the game element was created.'))
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'timestamp',
@@ -206,9 +208,20 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
       ->setTranslatable(TRUE)
-      ->setDescription(t('The time that the gameelement was last edited.'));
+      ->setDescription(t('The time that the game element was last edited.'));
 
     return $fields;
+  }
+
+  public static function loadByFaction(Faction $faction) {
+    $entity_type_repository = \Drupal::service('entity_type.repository');
+    $entity_type = $entity_type_repository->getEntityTypeFromClass(static::class);
+    $entity_storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $results = $entity_storage->getQuery()
+      ->accessCheck()
+      ->condition('faction', $faction->id())
+      ->execute();
+    return $entity_storage->loadMultiple($results);
   }
 
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
 
@@ -7,6 +9,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\minial_roll\GameInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -108,6 +111,19 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
         'weight' => -5,
       ])
       ->setDisplayConfigurable('view', TRUE);
+
+    $fields['faction_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Factions')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setRevisionable(TRUE)

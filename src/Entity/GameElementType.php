@@ -3,6 +3,7 @@
 namespace Drupal\minial_roll\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
+use Drupal\Core\Config\Entity\ConfigEntityType;
 
 /**
  * Defines the GameElement type configuration entity.
@@ -84,6 +85,32 @@ class GameElementType extends ConfigEntityBundleBase {
    */
   public function game(): Game {
     return Game::load($this->game);
+  }
+
+  public static function getBundleByGame(Game $game) {
+    if (empty($game->id())) {
+      return NULL;
+    }
+    $entity_type_repository = \Drupal::service('entity_type.repository');
+    $entity_type = $entity_type_repository->getEntityTypeFromClass(static::class);
+    $results = \Drupal::entityTypeManager()->getStorage($entity_type)->getQuery()
+      ->condition('game', $game->id())
+      ->execute();
+    return array_pop($results);
+  }
+
+  public static function loadElementsByGame(Game $game): array {
+    $id = self::getBundleByGame($game);
+    if (empty($id)) {
+      return [];
+    }
+    $element_type = static::load($id);
+    $entity_storage = \Drupal::entityTypeManager()->getStorage($element_type->getEntityType()->getBundleOf());
+    $results = $entity_storage->getQuery()
+      ->accessCheck()
+      ->condition('bundle', $element_type->id())
+      ->execute();
+    return $entity_storage->loadMultiple($results);
   }
 
 }
