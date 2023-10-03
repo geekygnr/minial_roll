@@ -3,7 +3,8 @@
 namespace Drupal\minial_roll\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
-use Drupal\Core\Config\Entity\ConfigEntityType;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\minial_roll\CardDisplayViewTrait;
 
 /**
  * Defines the GameElement type configuration entity.
@@ -52,6 +53,7 @@ use Drupal\Core\Config\Entity\ConfigEntityType;
  * )
  */
 class GameElementType extends ConfigEntityBundleBase {
+  use CardDisplayViewTrait;
 
   /**
    * All game element classes.
@@ -79,6 +81,17 @@ class GameElementType extends ConfigEntityBundleBase {
    * The game entity this element belongs to.
    */
   protected int $game;
+
+  /**
+   * {@inheritDoc}
+   */
+  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+    parent::postSave($storage, $update);
+    if ($update) {
+      return;
+    }
+    $this->setCardTrait($this);
+  }
 
   /**
    * @return \Drupal\minial_roll\Entity\Game
