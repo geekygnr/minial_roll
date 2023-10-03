@@ -36,8 +36,7 @@ final class WeaponTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No weapon types available. <a href=":link">Add weapon type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_weapon_type.add_form')->toString()],
+      'No weapon types available.'
     );
 
     return $build;

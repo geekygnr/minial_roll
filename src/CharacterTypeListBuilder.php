@@ -36,8 +36,7 @@ final class CharacterTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No character types available. <a href=":link">Add character type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_character_type.add_form')->toString()],
+      'No character types available.'
     );
 
     return $build;

@@ -36,8 +36,7 @@ final class ArmourTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No armour types available. <a href=":link">Add armour type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_armour_type.add_form')->toString()],
+      'No armour types available.'
     );
 
     return $build;

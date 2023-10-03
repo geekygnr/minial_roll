@@ -170,6 +170,9 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['armour_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
@@ -186,6 +189,9 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['character_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
@@ -202,6 +208,9 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['model_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
@@ -218,6 +227,9 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['weapon_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
@@ -234,6 +246,9 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['uid'] = BaseFieldDefinition::create('entity_reference')

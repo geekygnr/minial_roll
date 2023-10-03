@@ -36,8 +36,7 @@ final class GameElementTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No gameelement types available. <a href=":link">Add gameelement type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_game_element_type.add_form')->toString()],
+      'No gameelement types available.'
     );
 
     return $build;

@@ -36,8 +36,7 @@ final class FactionTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No faction types available. <a href=":link">Add faction type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_faction_type.add_form')->toString()],
+      'No faction types available.'
     );
 
     return $build;

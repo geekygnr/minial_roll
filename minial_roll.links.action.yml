@@ -4,23 +4,11 @@ minial_roll_game.add_form:
   appears_on:
     - entity.minial_roll_game.collection
 
-minial_roll_faction.type_add:
-  title: 'Add faction type'
-  route_name: entity.minial_roll_faction_type.add_form
-  appears_on:
-    - entity.minial_roll_faction_type.collection
-
 minial_roll_faction.add_page:
   title: 'Add faction'
   route_name: entity.minial_roll_faction.add_page
   appears_on:
     - entity.minial_roll_faction.collection
-
-minial_roll_armour.type_add:
-  title: 'Add armour type'
-  route_name: entity.minial_roll_armour_type.add_form
-  appears_on:
-    - entity.minial_roll_armour_type.collection
 
 minial_roll_armour.add_page:
   title: 'Add armour'
@@ -28,23 +16,11 @@ minial_roll_armour.add_page:
   appears_on:
     - entity.minial_roll_armour.collection
 
-minial_roll_character.type_add:
-  title: 'Add character type'
-  route_name: entity.minial_roll_character_type.add_form
-  appears_on:
-    - entity.minial_roll_character_type.collection
-
 minial_roll_character.add_page:
   title: 'Add character'
   route_name: entity.minial_roll_character.add_page
   appears_on:
     - entity.minial_roll_character.collection
-
-minial_roll_weapon.type_add:
-  title: 'Add weapon type'
-  route_name: entity.minial_roll_weapon_type.add_form
-  appears_on:
-    - entity.minial_roll_weapon_type.collection
 
 minial_roll_weapon.add_page:
   title: 'Add weapon'
@@ -52,23 +28,11 @@ minial_roll_weapon.add_page:
   appears_on:
     - entity.minial_roll_weapon.collection
 
-minial_roll_ability.type_add:
-  title: 'Add ability type'
-  route_name: entity.minial_roll_ability_type.add_form
-  appears_on:
-    - entity.minial_roll_ability_type.collection
-
 minial_roll_ability.add_page:
   title: 'Add ability'
   route_name: entity.minial_roll_ability.add_page
   appears_on:
     - entity.minial_roll_ability.collection
-
-minial_roll_model.type_add:
-  title: 'Add model type'
-  route_name: entity.minial_roll_model_type.add_form
-  appears_on:
-    - entity.minial_roll_model_type.collection
 
 minial_roll_model.add_page:
   title: 'Add model'

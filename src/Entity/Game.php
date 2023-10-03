@@ -126,6 +126,9 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'minial_roll_attached_element_formatter',
+        'settings' => [
+          'display_mode' => 'card',
+        ],
       ]);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')

@@ -36,8 +36,7 @@ final class ModelTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No model types available. <a href=":link">Add model type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_model_type.add_form')->toString()],
+      'No model types available.'
     );
 
     return $build;

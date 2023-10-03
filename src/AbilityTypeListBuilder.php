@@ -36,8 +36,7 @@ final class AbilityTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No ability types available. <a href=":link">Add ability type</a>.',
-      [':link' => Url::fromRoute('entity.minial_roll_ability_type.add_form')->toString()],
+      'No ability types available.'
     );
 
     return $build;
