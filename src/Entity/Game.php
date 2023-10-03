@@ -113,7 +113,7 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['faction_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['faction_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Factions')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -125,7 +125,7 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')

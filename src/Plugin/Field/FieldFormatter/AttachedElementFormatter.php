@@ -18,15 +18,15 @@ use Drupal\minial_roll\Entity\Game;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Plugin implementation of the 'Attached Faction' formatter.
+ * Plugin implementation of the 'Attached Element' formatter.
  *
  * @FieldFormatter(
- *   id = "minial_roll_attached_faction_formatter",
- *   label = @Translation("Attached Faction"),
- *   field_types = {"minial_roll_attached_faction"},
+ *   id = "minial_roll_attached_element_formatter",
+ *   label = @Translation("Attached Element"),
+ *   field_types = {"minial_roll_attached_element"},
  * )
  */
-final class AttachedFactionFormatter extends FormatterBase {
+final class AttachedElementFormatter extends FormatterBase {
 
   /**
    * The entity display repository.

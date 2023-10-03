@@ -156,7 +156,7 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['ability_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['ability_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Abilities')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -169,10 +169,10 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
-    $fields['armour_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['armour_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Armour')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -185,10 +185,10 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
-    $fields['character_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['character_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Characters')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -201,10 +201,10 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
-    $fields['model_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['model_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Models')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -217,10 +217,10 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
-    $fields['weapon_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+    $fields['weapon_list'] = BaseFieldDefinition::create('minial_roll_attached_element')
       ->setLabel('Weapons')
       ->setComputed(TRUE)
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -233,7 +233,7 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'minial_roll_attached_faction_formatter',
+        'type' => 'minial_roll_attached_element_formatter',
       ]);
 
     $fields['uid'] = BaseFieldDefinition::create('entity_reference')

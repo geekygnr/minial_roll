@@ -14,18 +14,18 @@ use Drupal\Core\TypedData\DataReferenceDefinition;
 use Drupal\minial_roll\Entity\GameElementType;
 
 /**
- * Defines the 'minial_roll_attached_faction' field type.
+ * Defines the 'minial_roll_attached_element' field type.
  *
  * @FieldType(
- *   id = "minial_roll_attached_faction",
- *   label = @Translation("Attached Faction"),
+ *   id = "minial_roll_attached_element",
+ *   label = @Translation("Attached Element"),
  *   category = @Translation("General"),
  *   default_widget = "string_textfield",
- *   default_formatter = "minial_roll_attached_faction_formatter",
+ *   default_formatter = "minial_roll_attached_element_formatter",
  *   no_ui = TRUE,
  * )
  */
-final class AttachedFactionItem extends FieldItemBase {
+final class AttachedElementItem extends FieldItemBase {
 
   /**
    * {@inheritdoc}
