@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
 
@@ -7,13 +9,11 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\minial_roll\AttachedFactionItemList;
 use Drupal\minial_roll\GameElementInterface;
 use Drupal\user\EntityOwnerTrait;
 
 /**
- * Defines the gameelement entity class.
+ * Defines the game element entity class.
  *
  * @ContentEntityType(
  *   id = "minial_roll_game_element",
@@ -125,7 +125,10 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
       ->setDisplayOptions('form', [
         'type' => 'options_select',
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ]);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setRevisionable(TRUE)

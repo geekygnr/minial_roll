@@ -2,13 +2,12 @@
 
 namespace Drupal\minial_roll\Form;
 
-use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Form controller for the character entity edit forms.
  */
-final class CharacterForm extends ContentEntityForm {
+final class CharacterForm extends GameElementForm {
 
   /**
    * {@inheritdoc}

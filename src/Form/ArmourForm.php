@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for the armour entity edit forms.
  */
-final class ArmourForm extends ContentEntityForm {
+final class ArmourForm extends GameElementForm {
 
   /**
    * {@inheritdoc}

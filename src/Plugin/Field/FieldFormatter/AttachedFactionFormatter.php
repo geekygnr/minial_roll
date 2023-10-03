@@ -4,15 +4,16 @@ declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Plugin\Field\FieldFormatter;
 
-use Drupal\Core\Entity\Entity\EntityViewMode;
+use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\EntityTypeRepositoryInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
-use Drupal\minial_roll\Entity\FactionType;
 use Drupal\minial_roll\Entity\Game;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -32,14 +33,29 @@ final class AttachedFactionFormatter extends FormatterBase {
    *
    * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
    */
-  protected $entityDisplayRepository;
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityDisplayRepositoryInterface $entityDisplayRepository) {
+  protected EntityDisplayRepositoryInterface $entityDisplayRepository;
+
+  protected $entityClass;
+
+  protected $entityType;
+
+  protected $configDefintion;
+
+  protected $entityDefintion;
+
+  protected $entityTypeManager;
+
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityDisplayRepositoryInterface $entityDisplayRepository, EntityTypeRepositoryInterface $entityTypeRepository, EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
     $this->entityDisplayRepository = $entityDisplayRepository;
+    $this->entityTypeManager = $entityTypeManager;
+    $this->entityClass = $this->fieldDefinition->getSetting('entity_type');
+    $this->entityType = $entityTypeRepository->getEntityTypeFromClass($this->entityClass);
+    $this->configDefintion = $entityTypeManager->getStorage($this->entityType)->getEntityType();
+    $this->entityDefintion = $entityTypeManager->getStorage($this->configDefintion->getBundleOf())->getEntityType();
   }
 
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
-  {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
       $plugin_id,
       $plugin_definition,
@@ -48,7 +64,9 @@ final class AttachedFactionFormatter extends FormatterBase {
       $configuration['label'],
       $configuration['view_mode'],
       $configuration['third_party_settings'],
-      $container->get('entity_display.repository')
+      $container->get('entity_display.repository'),
+      $container->get('entity_type.repository'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -82,11 +100,12 @@ final class AttachedFactionFormatter extends FormatterBase {
    * {@inheritDoc}
    */
   public function view(FieldItemListInterface $items, $langcode = NULL) {
-    $game = $items->getParent()->getEntity();
+    $entity = $items->getParent()->getEntity();
+    $game = $this->getGame($items);
     $view['#prefix'] = '<div>';
     $view['#suffix'] = '</div>';
     $view['field'] = parent::view($items, $langcode);
-    $view['link'] = $this->getLink($game)->toRenderable();
+    $view['link'] = $this->getLink($game, $entity)->toRenderable();
     return $view;
   }
 
@@ -95,24 +114,33 @@ final class AttachedFactionFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
     $element = [];
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('minial_roll_faction');
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder($this->configDefintion->getBundleOf());
     foreach ($items as $delta => $item) {
-      /** @var \Drupal\minial_roll\Entity\Faction $faction */
-      $faction = $item->entity;
-      $element[$delta] = $view_builder->view($faction, $this->getSetting('display_mode'));
+      $entity = $item->entity;
+      $element[$delta] = $view_builder->view($entity, $this->getSetting('display_mode'));
     }
     return $element;
   }
 
-  private function getLink(Game $game): Link {
-    $bundle = FactionType::getBundleByGame($game);
-    $route = 'entity.minial_roll_faction.add_form';
-    $url = Url::fromRoute($route, ['minial_roll_faction_type' => $bundle]);
+  private function getGame(FieldItemListInterface $items): Game {
+    $entity = $items->getParent()->getEntity();
+    if ($entity instanceof Game) {
+      return $entity;
+    }
+    $entity_type = $this->entityTypeManager->getStorage($this->entityType)->load($entity->bundle());
+    return $entity_type->game();
+  }
+
+  private function getLink(Game $game, EntityBase $entity): Link {
+    $bundle = $this->configDefintion->getClass()::getBundleByGame($game);
+    $route = 'entity.' . $this->configDefintion->getBundleOf() . '.add_form';
+    $url = Url::fromRoute($route, [$this->configDefintion->id() => $bundle]);
     $url->setOption('attributes', ['class' => 'button']);
     $url->setOption('query', [
-      'destination' => $game->toUrl()->toString(),
+      'destination' => $entity->toUrl()->toString(),
+      $entity->getEntityTypeId() => $entity->id(),
     ]);
-    return Link::fromTextAndUrl('Create Faction', $url);
+    return Link::fromTextAndUrl('Create ' . $this->entityDefintion->getLabel(), $url);
   }
 
 }

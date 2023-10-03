@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
 
@@ -7,6 +9,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\minial_roll\FactionElementItemList;
 use Drupal\minial_roll\FactionInterface;
 use Drupal\user\EntityOwnerTrait;
 
@@ -151,6 +155,86 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
         'weight' => 10,
       ])
       ->setDisplayConfigurable('view', TRUE);
+
+    $fields['ability_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Abilities')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setClass(FactionElementItemList::class)
+      ->setSetting('entity_type', AbilityType::class)
+      ->setSetting('entity', Ability::class)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
+
+    $fields['armour_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Armour')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setClass(FactionElementItemList::class)
+      ->setSetting('entity_type', ArmourType::class)
+      ->setSetting('entity', Armour::class)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
+
+    $fields['character_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Characters')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setClass(FactionElementItemList::class)
+      ->setSetting('entity_type', CharacterType::class)
+      ->setSetting('entity', Character::class)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
+
+    $fields['model_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Models')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setClass(FactionElementItemList::class)
+      ->setSetting('entity_type', ModelType::class)
+      ->setSetting('entity', Model::class)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
+
+    $fields['weapon_list'] = BaseFieldDefinition::create('minial_roll_attached_faction')
+      ->setLabel('Weapons')
+      ->setComputed(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setClass(FactionElementItemList::class)
+      ->setSetting('entity_type', WeaponType::class)
+      ->setSetting('entity', Weapon::class)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setDisplayOptions('form', [
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'minial_roll_attached_faction_formatter',
+      ]);
 
     $fields['uid'] = BaseFieldDefinition::create('entity_reference')
       ->setRevisionable(TRUE)

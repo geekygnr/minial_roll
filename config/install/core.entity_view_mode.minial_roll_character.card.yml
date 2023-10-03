@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - minial_roll
+id: minial_roll_character.card
+label: Card
+targetEntityType: minial_roll_character
+cache: true

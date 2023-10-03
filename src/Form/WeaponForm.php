@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for the weapon entity edit forms.
  */
-final class WeaponForm extends ContentEntityForm {
+final class WeaponForm extends GameElementForm {
 
   /**
    * {@inheritdoc}
