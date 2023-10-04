@@ -1,0 +1,6 @@
+services:
+  mymodule.breadcrumb:
+    class: Drupal\minial_roll\Breadcrumb\GameBreadcrumbBuilder
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: breadcrumb_builder, priority: 100 }
