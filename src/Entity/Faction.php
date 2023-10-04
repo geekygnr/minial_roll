@@ -131,12 +131,7 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
@@ -268,9 +263,7 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'author',
-        'weight' => 15,
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
@@ -279,9 +272,7 @@ final class Faction extends RevisionableContentEntityBase implements FactionInte
       ->setTranslatable(TRUE)
       ->setDescription(t('The time that the faction was created.'))
       ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'timestamp',
-        'weight' => 20,
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('form', [
