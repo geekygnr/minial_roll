@@ -116,7 +116,10 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'entity_reference_label',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'card',
+        ],
       ]);
 
     $fields['armour'] = BaseFieldDefinition::create('entity_reference')
@@ -132,7 +135,10 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'entity_reference_label',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'card',
+        ],
       ]);
 
     $fields['abilities'] = BaseFieldDefinition::create('entity_reference')
@@ -148,7 +154,10 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'entity_reference_label',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'card',
+        ],
       ]);
 
     $fields['weapons'] = BaseFieldDefinition::create('entity_reference')
@@ -164,7 +173,10 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'entity_reference_label',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'card',
+        ],
       ]);
 
     return $fields;
