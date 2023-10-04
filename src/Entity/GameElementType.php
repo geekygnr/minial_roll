@@ -4,7 +4,6 @@ namespace Drupal\minial_roll\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\minial_roll\CardDisplayViewTrait;
 
 /**
  * Defines the GameElement type configuration entity.
@@ -53,7 +52,6 @@ use Drupal\minial_roll\CardDisplayViewTrait;
  * )
  */
 class GameElementType extends ConfigEntityBundleBase {
-  use CardDisplayViewTrait;
 
   /**
    * All game element classes.
@@ -90,7 +88,25 @@ class GameElementType extends ConfigEntityBundleBase {
     if ($update) {
       return;
     }
-    $this->setCardTrait($this);
+    /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $displayRepo */
+    $displayRepo = \Drupal::service('entity_display.repository');
+    $display = $displayRepo->getViewDisplay($this->getEntityType()->getBundleOf(), $this->id(), 'card');
+    $display->enable();
+    $components = $display->getComponents();
+    foreach ($components as $id => $component) {
+      if ($id == 'label') {
+        $display->setComponent($id, [
+          'label' => 'hidden',
+          'type' => 'string',
+          'settings' => [
+            'link_to_entity' => TRUE,
+          ],
+        ]);
+        continue;
+      }
+      $display->removeComponent($id);
+    }
+    $display->save();
   }
 
   /**

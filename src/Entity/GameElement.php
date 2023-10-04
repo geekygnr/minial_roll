@@ -144,12 +144,7 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
@@ -186,9 +181,7 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'author',
-        'weight' => 15,
+        'region' => 'hidden',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
@@ -206,7 +199,10 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
         'type' => 'datetime_timestamp',
         'weight' => 20,
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'region' => 'hidden',
+      ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))

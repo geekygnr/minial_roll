@@ -113,11 +113,15 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayOptions('form', [
         'type' => 'options_select',
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label',
+      ]);
 
     $fields['armour'] = BaseFieldDefinition::create('entity_reference')
       ->setRevisionable(TRUE)
-      ->setLabel(t('Abilities'))
+      ->setLabel(t('Armour'))
       ->setSetting('target_type', 'minial_roll_armour')
       ->setSetting('handler', 'minial_roll_game_element_selection')
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
@@ -125,7 +129,11 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayOptions('form', [
         'type' => 'options_select',
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label',
+      ]);
 
     $fields['abilities'] = BaseFieldDefinition::create('entity_reference')
       ->setRevisionable(TRUE)
@@ -137,7 +145,11 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayOptions('form', [
         'type' => 'options_select',
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label',
+      ]);
 
     $fields['weapons'] = BaseFieldDefinition::create('entity_reference')
       ->setRevisionable(TRUE)
@@ -149,7 +161,11 @@ final class Model extends GameElement implements ModelInterface {
       ->setDisplayOptions('form', [
         'type' => 'options_select',
       ])
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label',
+      ]);
 
     return $fields;
   }

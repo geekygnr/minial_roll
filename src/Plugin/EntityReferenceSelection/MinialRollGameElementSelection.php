@@ -30,7 +30,11 @@ final class MinialRollGameElementSelection extends DefaultSelection {
     $query = parent::buildEntityQuery($match, $match_operator);
     $entity = $this->configuration['entity'];
     $faction = $entity->faction->entity;
-    $query->condition('faction', $faction->id());
+    $id = \Drupal::request()->get('minial_roll_faction');
+    if ($faction) {
+      $id = $faction->id();
+    }
+    $query->condition('faction', $id);
     return $query;
   }
 
