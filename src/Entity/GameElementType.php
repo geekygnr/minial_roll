@@ -110,6 +110,17 @@ class GameElementType extends ConfigEntityBundleBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function delete() {
+    $entities = $this->entityTypeManager()->getStorage($this->getEntityType()->getBundleOf())->loadByProperties(['bundle' => $this->id()]);
+    foreach ($entities as $entity) {
+      $entity->delete();
+    }
+    parent::delete();
+  }
+
+  /**
    * @return \Drupal\minial_roll\Entity\Game
    */
   public function game(): Game {
