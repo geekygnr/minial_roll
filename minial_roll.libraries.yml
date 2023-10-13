@@ -1,0 +1,5 @@
+faction_section:
+  version: VERSION
+  css:
+    theme:
+      layouts/faction/faction_section.css: {}

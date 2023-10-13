@@ -1,0 +1,12 @@
+/*
+ * @file
+ * Provides the layout styles for the minal roll faction layout section.
+ */
+
+.layout--faction > .row {
+  display: flex;
+}
+
+.layout--faction > .row > .layout__region {
+  flex-grow: 1;
+}

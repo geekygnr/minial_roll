@@ -1,0 +1,22 @@
+layout_minial_roll_faction:
+  label: Minial Roll Faction
+  path: layouts/faction
+  template: layout--faction
+  library: minial_roll/faction_section
+  class: '\Drupal\minial_roll\Plugin\Layout\FactionLayout'
+  category: 'Minial Roll'
+  default_region: top
+  icon_map:
+    - [ top ]
+    - [ first, second, third, fourth ]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth
