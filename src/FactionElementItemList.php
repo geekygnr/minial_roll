@@ -15,6 +15,14 @@ class FactionElementItemList extends FieldItemList {
   /**
    * {@inheritDoc}
    */
+  public function isEmpty() {
+    // Field is never empty because field must always be displayed.
+    return FALSE;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
   protected function computeValue(): array {
     if (isset($this->list[0])) {
       return $this->list;

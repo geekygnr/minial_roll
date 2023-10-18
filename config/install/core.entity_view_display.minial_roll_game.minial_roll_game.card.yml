@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.minial_roll_game.card
+  module:
+    - layout_builder
+    - minial_roll
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: minial_roll_game.minial_roll_game.card
+targetEntityType: minial_roll_game
+bundle: minial_roll_game
+mode: card
+content:
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  description: true
+  faction_list: true
+  status: true
+  uid: true

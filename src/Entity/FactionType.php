@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\layout_builder\Section;
 use Drupal\layout_builder\SectionComponent;
@@ -64,6 +65,13 @@ final class FactionType extends GameElementType {
     if ($update) {
       return;
     }
+    $this->generateDisplay();
+    $cache = \Drupal::cache('discovery');
+    // reload block plugin definitions so field blocks render properly in layout builder.
+    $cache->invalidate('block_plugins');
+  }
+
+  private function generateDisplay() {
     $uuid_service = \Drupal::service('uuid');
     /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $displayRepo */
     $displayRepo = \Drupal::service('entity_display.repository');
@@ -76,7 +84,7 @@ final class FactionType extends GameElementType {
     $component = new SectionComponent($uuid_service->generate(), 'top', [
       'id' => 'field_block:minial_roll_faction:' . $this->id() . ':model_list',
       'label' => 'Models',
-      'label_display' => '0',
+      'label_display' => '1',
       'provider' => 'layout_builder',
       'context_mapping' => [
         'entity' => 'layout_builder.entity',
@@ -84,7 +92,7 @@ final class FactionType extends GameElementType {
       ],
       'formatter' => [
         'type' => 'minial_roll_attached_element_formatter',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'display_mode' => 'card',
           'third_party_settings' => [],
@@ -97,7 +105,7 @@ final class FactionType extends GameElementType {
     $component = new SectionComponent($uuid_service->generate(), 'first', [
       'id' => 'field_block:minial_roll_faction:' . $this->id() . ':character_list',
       'label' => 'Characters',
-      'label_display' => '0',
+      'label_display' => '1',
       'provider' => 'layout_builder',
       'context_mapping' => [
         'entity' => 'layout_builder.entity',
@@ -105,7 +113,7 @@ final class FactionType extends GameElementType {
       ],
       'formatter' => [
         'type' => 'minial_roll_attached_element_formatter',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'display_mode' => 'card',
           'third_party_settings' => [],
@@ -117,8 +125,8 @@ final class FactionType extends GameElementType {
     // armour list.
     $component = new SectionComponent($uuid_service->generate(), 'second', [
       'id' => 'field_block:minial_roll_faction:' . $this->id() . ':armour_list',
-      'label' => 'Models',
-      'label_display' => '0',
+      'label' => 'Armour',
+      'label_display' => '1',
       'provider' => 'layout_builder',
       'context_mapping' => [
         'entity' => 'layout_builder.entity',
@@ -126,7 +134,7 @@ final class FactionType extends GameElementType {
       ],
       'formatter' => [
         'type' => 'minial_roll_attached_element_formatter',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'display_mode' => 'card',
           'third_party_settings' => [],
@@ -138,8 +146,8 @@ final class FactionType extends GameElementType {
     // weapon list.
     $component = new SectionComponent($uuid_service->generate(), 'third', [
       'id' => 'field_block:minial_roll_faction:' . $this->id() . ':weapon_list',
-      'label' => 'Models',
-      'label_display' => '0',
+      'label' => 'Weapons',
+      'label_display' => '1',
       'provider' => 'layout_builder',
       'context_mapping' => [
         'entity' => 'layout_builder.entity',
@@ -147,7 +155,7 @@ final class FactionType extends GameElementType {
       ],
       'formatter' => [
         'type' => 'minial_roll_attached_element_formatter',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'display_mode' => 'card',
           'third_party_settings' => [],
@@ -159,8 +167,8 @@ final class FactionType extends GameElementType {
     // ability list.
     $component = new SectionComponent($uuid_service->generate(), 'fourth', [
       'id' => 'field_block:minial_roll_faction:' . $this->id() . ':ability_list',
-      'label' => 'Models',
-      'label_display' => '0',
+      'label' => 'Abilities',
+      'label_display' => '1',
       'provider' => 'layout_builder',
       'context_mapping' => [
         'entity' => 'layout_builder.entity',
@@ -168,7 +176,7 @@ final class FactionType extends GameElementType {
       ],
       'formatter' => [
         'type' => 'minial_roll_attached_element_formatter',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'display_mode' => 'card',
           'third_party_settings' => [],

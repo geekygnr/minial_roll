@@ -92,6 +92,7 @@ final class AttachedElementFormatter extends FormatterBase {
       '#description' => $this->t('The display mode used to render each faction.'),
       '#type' => 'select',
       '#options' => $options,
+      '#default_value' => $this->getSetting('display_mode'),
     ];
     return $form;
   }
@@ -105,7 +106,9 @@ final class AttachedElementFormatter extends FormatterBase {
     $view['#prefix'] = '<div>';
     $view['#suffix'] = '</div>';
     $view['field'] = parent::view($items, $langcode);
-    $view['link'] = $this->getLink($game, $entity)->toRenderable();
+    if ($entity) {
+      $view['link'] = $this->getLink($game, $entity)->toRenderable();
+    }
     return $view;
   }
 
@@ -117,7 +120,9 @@ final class AttachedElementFormatter extends FormatterBase {
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder($this->configDefintion->getBundleOf());
     foreach ($items as $delta => $item) {
       $entity = $item->entity;
-      $element[$delta] = $view_builder->view($entity, $this->getSetting('display_mode'));
+      if ($entity) {
+        $element[$delta] = $view_builder->view($entity, $this->getSetting('display_mode'));
+      }
     }
     return $element;
   }
