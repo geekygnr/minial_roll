@@ -109,6 +109,7 @@ final class AttachedElementFormatter extends FormatterBase {
     if ($entity) {
       $view['link'] = $this->getLink($game, $entity)->toRenderable();
     }
+    $view['#cache']['tags'][] = $this->entityDefintion->id() . '_list';
     return $view;
   }
 
