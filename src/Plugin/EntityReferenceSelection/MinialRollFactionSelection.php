@@ -28,9 +28,11 @@ final class MinialRollFactionSelection extends DefaultSelection {
   protected function buildEntityQuery($match = NULL, $match_operator = 'CONTAINS'): QueryInterface {
     $query = parent::buildEntityQuery($match, $match_operator);
     $entity = $this->configuration['entity'];
-    $bundleId = $entity->bundle();
-    $bundleKey = $entity->getEntityType()->getKey('bundle');
-    $query->condition($bundleKey, $bundleId);
+    if ($entity) {
+      $bundleId = $entity->bundle();
+      $bundleKey = $entity->getEntityType()->getKey('bundle');
+      $query->condition($bundleKey, $bundleId);
+    }
     return $query;
   }
 

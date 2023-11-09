@@ -67,7 +67,7 @@ final class FactionType extends GameElementType {
     }
     $this->generateDisplay();
     $cache = \Drupal::cache('discovery');
-    // reload block plugin definitions so field blocks render properly in layout builder.
+    // Reload block plugin definitions so field blocks render properly.
     $cache->invalidate('block_plugins');
   }
 
@@ -75,7 +75,7 @@ final class FactionType extends GameElementType {
     $uuid_service = \Drupal::service('uuid');
     /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $displayRepo */
     $displayRepo = \Drupal::service('entity_display.repository');
-    // Set up default display to use display builder
+    // Set up default display to use display builder.
     $display = $displayRepo->getViewDisplay($this->getEntityType()->getBundleOf(), $this->id());
     $display->enableLayoutBuilder();
     $display->removeAllSections();
