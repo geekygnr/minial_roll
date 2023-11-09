@@ -117,15 +117,3 @@ entity.minial_roll_battle_list.collection:
   description: 'List of battle lists.'
   route_name: entity.minial_roll_battle_list.collection
   parent: minial_roll.content
-
-entity.minial_roll_inventory_type.collection:
-  title: 'Inventory types'
-  description: 'Manage and CRUD actions on Inventory type.'
-  parent: minial_roll.structure
-  route_name: entity.minial_roll_inventory_type.collection
-
-entity.minial_roll_inventory.collection:
-  title: 'Inventories'
-  description: 'List of inventories.'
-  route_name: entity.minial_roll_inventory.collection
-  parent: minial_roll.content

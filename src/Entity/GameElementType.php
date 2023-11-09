@@ -91,13 +91,13 @@ class GameElementType extends ConfigEntityBundleBase {
     }
     /** @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface $displayRepo */
     $displayRepo = \Drupal::service('entity_display.repository');
-    // Set up default display to use display builder
+    // Set up default display to use display builder.
     $display = $displayRepo->getViewDisplay($this->getEntityType()->getBundleOf(), $this->id());
     $display->enableLayoutBuilder();
     $display->removeAllSections();
     $section = new Section('minial_roll_faction');
     $display->insertSection(0, $section);
-    // Set up card display
+    // Set up card display.
     $display = $displayRepo->getViewDisplay($this->getEntityType()->getBundleOf(), $this->id(), 'card');
     $display->enable();
     $components = $display->getComponents();
