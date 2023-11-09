@@ -5,6 +5,8 @@ dependencies:
     - core.entity_view_mode.minial_roll_model.card
   module:
     - minial_roll
+_core:
+  default_config_hash: CJIDdwub8N7mSHvpu_k7MVh9v0O1us3Z8QXo5AmCV_w
 id: minial_roll_inventory
 label: 'Minial Roll Inventory'
 module: views
@@ -21,6 +23,71 @@ display:
     display_options:
       title: 'Minial Roll Inventory'
       fields:
+        bundle:
+          id: bundle
+          table: minial_roll_model_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: minial_roll_model
+          entity_field: bundle
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<h2>{{ bundle }}</h2>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         faction:
           id: faction
           table: minial_roll_model_field_data
@@ -60,7 +127,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: h3
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -166,6 +233,10 @@ display:
         type: grid
         options:
           grouping:
+            -
+              field: bundle
+              rendered: true
+              rendered_strip: false
             -
               field: faction
               rendered: true
