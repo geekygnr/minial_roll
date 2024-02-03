@@ -114,16 +114,3 @@ minial_roll.minial_roll_battle_list_type.*:
       label: 'Label'
     uuid:
       type: string
-
-minial_roll.minial_roll_inventory_type.*:
-  type: config_entity
-  label: 'Inventory type config'
-  mapping:
-    id:
-      type: string
-      label: 'ID'
-    label:
-      type: label
-      label: 'Label'
-    uuid:
-      type: string

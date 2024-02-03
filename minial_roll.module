@@ -22,7 +22,6 @@ function minial_roll_theme(): array {
     'minial_roll_model' => ['render element' => 'elements'],
     'minial_roll_squad' => ['render element' => 'elements'],
     'minial_roll_battle_list' => ['render element' => 'elements'],
-    'minial_roll_inventory' => ['render element' => 'elements'],
   ];
 }
 
@@ -43,7 +42,6 @@ function _list_defined_types(): array {
     'minial_roll_model',
     'minial_roll_squad',
     'minial_roll_battle_list',
-    'minial_roll_inventory',
   ];
 }
 
@@ -284,24 +282,6 @@ function template_preprocess_minial_roll_squad(array &$variables): void {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_minial_roll_battle_list(array &$variables): void {
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
-  foreach (Element::children($variables['elements']) as $key) {
-    $variables['content'][$key] = $variables['elements'][$key];
-  }
-}
-
-/**
- * Prepares variables for inventory templates.
- *
- * Default template: minial-roll-inventory.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - elements: An associative array containing the inventory information and any
- *     fields attached to the entity.
- *   - attributes: HTML attributes for the containing element.
- */
-function template_preprocess_minial_roll_inventory(array &$variables): void {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];

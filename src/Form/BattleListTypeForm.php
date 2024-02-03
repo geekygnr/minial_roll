@@ -1,11 +1,10 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Form;
 
-use Drupal\Core\Entity\BundleEntityFormBase;
-use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\minial_roll\Entity\BattleListType;
 
 /**
  * Form handler for battle list type forms.

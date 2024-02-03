@@ -1,8 +1,8 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
-
-use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 
 /**
  * Defines the Ability type configuration entity.

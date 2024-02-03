@@ -1,12 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Plugin\EntityReferenceSelection;
 
 use Drupal\Core\Entity\Plugin\EntityReferenceSelection\DefaultSelection;
 use Drupal\Core\Entity\Query\QueryInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\minial_roll\Entity\Ability;
-use Drupal\minial_roll\Entity\AbilityType;
 
 /**
  * @todo Add plugin description here.

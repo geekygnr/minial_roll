@@ -64,6 +64,8 @@ class GameElementType extends ConfigEntityBundleBase {
     FactionType::class,
     ModelType::class,
     WeaponType::class,
+    SquadType::class,
+    BattleListType::class,
   ];
 
   /**

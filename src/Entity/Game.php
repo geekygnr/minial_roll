@@ -236,6 +236,9 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
   public function delete() {
     foreach (GameElementType::ELEMENTS as $elementClass) {
       $bundle_id = $elementClass::getBundleByGame($this);
+      if (!$bundle_id) {
+        continue;
+      }
       $bundle = $elementClass::load($bundle_id);
       $bundle->delete();
     }

@@ -1,8 +1,8 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
-
-use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 
 /**
  * Defines the Squad type configuration entity.
@@ -46,19 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "game",
  *   },
  * )
  */
-final class SquadType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this squad type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the squad type.
-   */
-  protected string $label;
+final class SquadType extends GameElementType {
 
 }

@@ -1,8 +1,8 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace Drupal\minial_roll\Entity;
-
-use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 
 /**
  * Defines the Battle List type configuration entity.
@@ -49,16 +49,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   },
  * )
  */
-final class BattleListType extends ConfigEntityBundleBase {
-
-  /**
-   * The machine name of this battle list type.
-   */
-  protected string $id;
-
-  /**
-   * The human-readable name of the battle list type.
-   */
-  protected string $label;
+final class BattleListType extends GameElementType {
 
 }
