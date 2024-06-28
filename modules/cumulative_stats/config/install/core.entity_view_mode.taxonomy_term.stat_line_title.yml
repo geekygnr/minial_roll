@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.stat_line_title
+label: 'Stat Line Title'
+description: 'The title of a stat belonging to a game element of the Minial Roll module.'
+targetEntityType: taxonomy_term
+cache: true

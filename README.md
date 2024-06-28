@@ -12,6 +12,7 @@ The primary use case for this module is:
 
 - Views
 - Layout Builder
+- Taxonomy
 
 ## INSTALLATION
 
@@ -36,7 +37,14 @@ A game is created
   - Ability
   - Model
 - Each of these content types can be used to generate details of a model
-- These models can be added to inventories, squads and
+- These models can be added to battle lists and squads.
+
+### Stat Lines
+
+A game has a stat line field where the different attributes belonging to a stat line can set. From here custom fields
+can be created to store the stat line values on the various aspects of the models.
+
+The submodule Cumulative Stats is an example of this kind of custom field.
 
 ## MAINTAINERS
 

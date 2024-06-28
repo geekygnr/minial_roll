@@ -165,6 +165,20 @@ final class Game extends RevisionableContentEntityBase implements GameInterface 
       ])
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['stat_line'] = BaseFieldDefinition::create('entity_reference')
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setLabel(t('Stats Attribute Names'))
+      ->setRequired(TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'options_select',
+        'weight' => 10,
+      ]);
+
     $fields['uid'] = BaseFieldDefinition::create('entity_reference')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)

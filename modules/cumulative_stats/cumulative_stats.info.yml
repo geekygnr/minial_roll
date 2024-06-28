@@ -1,0 +1,5 @@
+name: 'Cumulative Stats'
+type: module
+description: 'Generates a stat line that will be based on a combination of stat lines.'
+package: Custom
+core_version_requirement: ^10
