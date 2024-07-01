@@ -219,6 +219,7 @@ class GameElement extends RevisionableContentEntityBase implements GameElementIn
     $results = $entity_storage->getQuery()
       ->accessCheck()
       ->condition('faction', $faction->id())
+      ->sort('label')
       ->execute();
     return $entity_storage->loadMultiple($results);
   }

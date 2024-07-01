@@ -35,6 +35,7 @@ final class MinialRollGameElementSelection extends DefaultSelection {
       $id = $faction->id();
     }
     $query->condition('faction', $id);
+    $query->sort('label');
     return $query;
   }
 

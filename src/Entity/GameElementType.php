@@ -159,6 +159,7 @@ class GameElementType extends ConfigEntityBundleBase {
     $results = $entity_storage->getQuery()
       ->accessCheck()
       ->condition('bundle', $element_type->id())
+      ->sort('label')
       ->execute();
     return $entity_storage->loadMultiple($results);
   }

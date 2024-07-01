@@ -31,6 +31,7 @@ final class MinialRollFactionSelection extends DefaultSelection {
       $bundleId = $entity->bundle();
       $bundleKey = $entity->getEntityType()->getKey('bundle');
       $query->condition($bundleKey, $bundleId);
+      $query->sort('label');
     }
     return $query;
   }
