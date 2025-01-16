@@ -144,6 +144,7 @@ class GameElementType extends ConfigEntityBundleBase {
     $entity_type_repository = \Drupal::service('entity_type.repository');
     $entity_type = $entity_type_repository->getEntityTypeFromClass(static::class);
     $results = \Drupal::entityTypeManager()->getStorage($entity_type)->getQuery()
+      ->accessCheck()
       ->condition('game', $game->id())
       ->execute();
     return array_pop($results);
